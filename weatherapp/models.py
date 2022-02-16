@@ -6,8 +6,7 @@ class SearchedCity(models.Model):
     temperature=models.IntegerField(verbose_name='Температура')
     sent_at=models.DateTimeField(auto_now_add=True, verbose_name='Дата и время')
     updated=models.DateTimeField(auto_now=True, verbose_name='Обновленное время')
+    image = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.city
-# class Weather(models.Model):
-#     weather=models.UrlField( blank=True, null=True)

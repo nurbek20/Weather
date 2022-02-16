@@ -27,15 +27,11 @@ def search(request):
         searchedCity = SearchedCity()
         searchedCity.city=request.POST.get('city').title()
         searchedCity.temperature=temp
+        searchedCity.image=weather
         searchedCity.save()
-        # weather=Weather()
-        # weather.city=request.POST.get()
-        # weather.icon=weather
-        # weather.save()
-        all_context={'data' :data, 'temp' :temp, 'city' :city.title(), 'feels_like' :feels_like, 'temp_min' :temp_min, 'temp_max' :temp_max, 'sys' :sys, 'weather' :weather, 'clouds' :clouds}
+        all_context={'data' :data, 'temp' :temp, 'city' :city.title(), 'feels_like' :feels_like, 'temp_min' :temp_min, 'temp_max' :temp_max, 'sys' :sys, 'weather1' :weather, 'clouds' :clouds}
         return render(request, 'weather.html', context=all_context)
 def city(request): 
     cities = SearchedCity.objects.all()
-    # weather = Weather.objects.all() 
     return render(request, 'index.html', {'cities' :cities})  
   
